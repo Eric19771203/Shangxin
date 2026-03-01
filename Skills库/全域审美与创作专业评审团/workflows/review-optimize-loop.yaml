@@ -1,0 +1,113 @@
+workflow:
+  id: "WF-007"
+  name: "评审优化循环"
+  version: "1.0"
+  description: "评审后优化，循环直到达标"
+  category: "optimization"
+  
+  input:
+    required:
+      - name: "content"
+        type: "string"
+        description: "待优化的内容"
+      - name: "type"
+        type: "string"
+        description: "内容类型"
+      - name: "target_score"
+        type: "integer"
+        description: "目标评分（如：120）"
+    optional:
+      - name: "max_iterations"
+        type: "integer"
+        description: "最大迭代次数（默认：3）"
+        default: 3
+      - name: "audience"
+        type: "string"
+        description: "目标受众"
+      - name: "platform"
+        type: "string"
+        description: "发行平台"
+  
+  steps:
+    - id: "step_1"
+      name: "初次评审"
+      node_id: "NODE-001"
+      agent: "content-review-agent"
+      action: "review"
+      input:
+        content: "${input.content}"
+        type: "${input.type}"
+        audience: "${input.audience}"
+        platform: "${input.platform}"
+      output_var: "review_result"
+      timeout: "10m"
+    
+    - id: "step_2"
+      name: "优化内容"
+      node_id: "NODE-005"
+      agent: "script-master-agent"
+      action: "optimize"
+      input:
+        content: "${input.content}"
+        review_feedback: "${review_result}"
+        target_score: "${input.target_score}"
+      output_var: "optimized_content"
+      timeout: "10m"
+      condition: "${review_result.score} < ${input.target_score}"
+    
+    - id: "step_3"
+      name: "再次评审"
+      node_id: "NODE-001"
+      agent: "content-review-agent"
+      action: "review"
+      input:
+        content: "${optimized_content}"
+        type: "${input.type}"
+        audience: "${input.audience}"
+        platform: "${input.platform}"
+      output_var: "review_result_2"
+      timeout: "10m"
+      condition: "${review_result.score} < ${input.target_score}"
+    
+    - id: "step_4"
+      name: "第二次优化"
+      node_id: "NODE-005"
+      agent: "script-master-agent"
+      action: "optimize"
+      input:
+        content: "${optimized_content}"
+        review_feedback: "${review_result_2}"
+        target_score: "${input.target_score}"
+      output_var: "optimized_content_2"
+      timeout: "10m"
+      condition: "${review_result_2.score} < ${input.target_score} && ${iteration} < ${input.max_iterations}"
+    
+    - id: "step_5"
+      name: "最终评审"
+      node_id: "NODE-001"
+      agent: "content-review-agent"
+      action: "review"
+      input:
+        content: "${optimized_content_2}"
+        type: "${input.type}"
+        audience: "${input.audience}"
+        platform: "${input.platform}"
+      output_var: "final_review"
+      timeout: "10m"
+      condition: "${review_result_2.score} < ${input.target_score}"
+  
+  output:
+    - name: "final_content"
+      source: "${optimized_content_2 || optimized_content || input.content}"
+      description: "最终优化后的内容"
+    - name: "final_review"
+      source: "${final_review || review_result_2 || review_result}"
+      description: "最终评审报告"
+    - name: "iterations"
+      source: "${iteration_count}"
+      description: "实际迭代次数"
+  
+  error_handling:
+    on_failure: "return_partial_results"
+    retry_count: 1
+    retry_delay: "30s"

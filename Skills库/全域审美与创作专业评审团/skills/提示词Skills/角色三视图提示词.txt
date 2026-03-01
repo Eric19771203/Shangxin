@@ -1,0 +1,25 @@
+Xianxia 3D animation character, semi-realistic style, Xianxia animation aesthetics, high precision 3D modeling, PBR shading with soft translucency, subsurface scattering, ambient occlusion, delicate and smooth skin texture (not overly realistic), flowing fabric clothing, individual hair strands, soft ethereal lighting, cinematic rim lighting with cool blue tones, otherworldly gaze, elegant and cold demeanor
+
+3D动漫风格，风格化3D渲染，PBR材质渲染，高精度3D建模，3D动漫美学。
+
+角色三视图生成任务：生成角色三视图参考表（正视图、侧视图、后视图）。
+
+角色描述：Xianxia 3D animation character, semi-realistic style, Xianxia animation aesthetics, a tall and elegant male character named Lu Yuan, otherworldly gaze, cold and aloof expression, long black hair with individual strands visible and individual hair strands blowing slightly, high precision 3D modeling. Clothing is a fusion of flowing silk robes and high-tech minimalist white fabric, PBR shading with soft translucency, subsurface scattering on his delicate and smooth skin texture. Face features sharp and handsome lines with cold silver eyes. Soft ethereal lighting, cinematic rim lighting with cool blue tones, ambient occlusion, standing in a high-tech pure white space with holographic blue data streams floating around, elegant and cold demeanor.
+属性：28岁，男性，身高188cm，身材修长且带有紧致的肌肉线条。长发如墨，以一圈细窄的淡蓝色金属环束于脑后，额前散落几缕碎发。双眼呈现极浅的银灰色，面容如精雕细琢的寒冰，没有任何多余的情感波动。身着一袭融合了未来科技感与仙侠韵味的纯白长袍，袍身流转着微弱的数据纹路。
+
+构图：
+- 创建垂直布局，包含3个视图：正视图、侧视图（侧面）、后视图
+- 全身站立姿势，中性表情
+- 纯色平背景 - 仅纯色背景（白色、浅灰色或黑色），无图案、无渐变、无环境元素
+- 每个视图应清晰显示指定角度的角色
+
+关键要求：
+1. 一致的角色设计 - 三个视图必须显示相同的角色，面部特征、发型、身体比例和服装保持一致
+2. 无文本、无标签 - 纯图像，无"正视图"或"侧视图"文字标签
+3. 正确的解剖结构 - 确保每个视角的正确身体比例和自然姿势
+4. 中性表情 - 在所有视图中使用平静、中性的面部表情
+5. 清晰对齐 - 正视图、侧视图和后视图应垂直对齐且比例一致
+
+参考图片：使用表情图作为面部和服装细节的视觉参考。
+
+负面提示词：nsfw, text, watermark, label, signature, bad anatomy, deformed, low quality, writing, letters, logo, interface, ui, username, website, chinese characters, english text, patterned background, gradient background, scenery, environmental background, shadows on background, 2D illustration, hand-drawn, anime 2D, flat shading, cel shading, toon shading, cartoon 2D, paper cutout, translucent, ghostly, ethereal, glowing aura, overly photorealistic, hyper-realistic skin, photorealistic rendering

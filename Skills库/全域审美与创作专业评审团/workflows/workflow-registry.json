@@ -1,0 +1,130 @@
+{
+  "version": "1.0",
+  "updated": "2024-01-15T20:30:00Z",
+  "description": "所有工作流的注册表",
+  "workflows": [
+    {
+      "id": "WF-001",
+      "name": "单独评审",
+      "category": "review",
+      "description": "对单个作品进行完整的专业评审",
+      "nodes": ["NODE-001"],
+      "definition_file": "workflows/single-review.yaml",
+      "estimated_time": "5-10分钟",
+      "use_cases": ["快速评审作品", "获取专业意见", "了解作品优劣"],
+      "status": "active"
+    },
+    {
+      "id": "WF-002",
+      "name": "创意到剧本",
+      "category": "creation",
+      "description": "从创意生成到完整剧本的创作流程",
+      "nodes": ["NODE-002", "NODE-005", "NODE-001"],
+      "definition_file": "workflows/idea-to-script.yaml",
+      "estimated_time": "15-20分钟",
+      "use_cases": ["完整剧本创作", "从零开始创作"],
+      "status": "active"
+    },
+    {
+      "id": "WF-003",
+      "name": "剧本到分镜",
+      "category": "production",
+      "description": "将剧本转换为详细分镜头脚本",
+      "nodes": ["NODE-008"],
+      "definition_file": "workflows/script-to-storyboard.yaml",
+      "estimated_time": "10-15分钟",
+      "use_cases": ["分镜头设计", "拍摄准备"],
+      "status": "active"
+    },
+    {
+      "id": "WF-004",
+      "name": "网文改编短剧全流程",
+      "category": "adaptation",
+      "description": "网文小说改编为短剧的完整流程",
+      "nodes": ["NODE-007", "NODE-001", "NODE-008"],
+      "definition_file": "workflows/novel-to-drama-full.yaml",
+      "estimated_time": "20-30分钟",
+      "use_cases": ["网文改编", "IP开发"],
+      "status": "active"
+    },
+    {
+      "id": "WF-005",
+      "name": "爽文短剧创作",
+      "category": "creation",
+      "description": "快速创作爽文短剧剧本",
+      "nodes": ["NODE-002", "NODE-006", "NODE-001"],
+      "definition_file": "workflows/shuangwen-drama-creation.yaml",
+      "estimated_time": "15-20分钟",
+      "use_cases": ["爽文短剧", "快节奏内容"],
+      "status": "active"
+    },
+    {
+      "id": "WF-006",
+      "name": "TVC广告制作",
+      "category": "commercial",
+      "description": "TVC广告从创意到分镜的完整流程",
+      "nodes": ["NODE-002", "NODE-009", "NODE-001"],
+      "definition_file": "workflows/tvc-production.yaml",
+      "estimated_time": "15-20分钟",
+      "use_cases": ["商业广告", "产品推广"],
+      "status": "active"
+    },
+    {
+      "id": "WF-007",
+      "name": "评审优化循环",
+      "category": "optimization",
+      "description": "评审后优化，循环直到达标",
+      "nodes": ["NODE-001", "NODE-005", "NODE-001"],
+      "definition_file": "workflows/review-optimize-loop.yaml",
+      "estimated_time": "20-40分钟",
+      "use_cases": ["内容优化", "质量提升"],
+      "status": "active"
+    },
+    {
+      "id": "WF-008",
+      "name": "角色驱动故事创作",
+      "category": "creation",
+      "description": "从角色设计开始的故事创作流程",
+      "nodes": ["NODE-015", "NODE-005", "NODE-001"],
+      "definition_file": "workflows/character-driven-story.yaml",
+      "estimated_time": "20-25分钟",
+      "use_cases": ["角色为中心的创作", "深度角色塑造"],
+      "status": "active"
+    },
+    {
+      "id": "WF-009",
+      "name": "小说创作全流程",
+      "category": "creation",
+      "description": "从创意到完整小说的创作流程",
+      "nodes": ["NODE-002", "NODE-015", "NODE-012", "NODE-001"],
+      "definition_file": "workflows/novel-creation-full.yaml",
+      "estimated_time": "30-40分钟",
+      "use_cases": ["小说创作", "长篇内容"],
+      "status": "active"
+    },
+    {
+      "id": "WF-010",
+      "name": "玄幻漫剧创作",
+      "category": "creation",
+      "description": "玄幻题材漫剧的专业创作流程",
+      "nodes": ["NODE-002", "NODE-016", "NODE-001"],
+      "definition_file": "workflows/xuanhuan-drama-creation.yaml",
+      "estimated_time": "20-25分钟",
+      "use_cases": ["玄幻题材", "漫剧创作"],
+      "status": "active"
+    }
+  ],
+  "categories": [
+    "review",
+    "creation",
+    "adaptation",
+    "production",
+    "commercial",
+    "optimization"
+  ],
+  "metadata": {
+    "total_workflows": 10,
+    "active_workflows": 10,
+    "last_updated": "2024-01-15T20:30:00Z"
+  }
+}

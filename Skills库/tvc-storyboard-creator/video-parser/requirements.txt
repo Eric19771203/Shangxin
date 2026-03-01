@@ -1,0 +1,40 @@
+# requirements.txt - 视频链接解析依赖
+
+# 视频下载与解析
+yt-dlp>=2023.12.30          # YouTube/B站/TikTok等下载
+youtube-transcript-api>=0.6.1  # YouTube字幕提取
+
+# 视频处理
+opencv-python>=4.8.0        # 视频分析、关键帧提取
+moviepy>=1.0.3              # 视频剪辑处理
+ffmpeg-python>=0.2.0        # FFmpeg封装
+
+# 图像处理
+Pillow>=10.0.0              # 图像处理
+imageio>=2.31.0             # 图像I/O
+
+# 音频处理（可选）
+speechrecognition>=3.10.0   # 语音转文字
+pydub>=0.25.1               # 音频处理
+
+# 网络请求
+requests>=2.31.0            # HTTP请求
+aiohttp>=3.9.0              # 异步HTTP
+
+# 数据解析
+beautifulsoup4>=4.12.0      # HTML解析
+lxml>=4.9.0                 # XML/HTML解析
+
+# 数据存储
+pymongo>=4.6.0              # MongoDB（存储案例）
+redis>=5.0.0                # Redis（缓存）
+
+# AI分析
+openai>=1.0.0               # GPT-4V视觉分析
+anthropic>=0.8.0            # Claude视觉分析
+
+google-generativeai>=0.3.0  # Gemini视觉分析
+
+# 工具
+python-dotenv>=1.0.0        # 环境变量
+tqdm>=4.66.0                # 进度条

@@ -1,0 +1,695 @@
+{
+  "content_info": {
+    "type": "movie",
+    "subtype": "romance",
+    "board_type": "3x3",
+    "scene_description": "初恋的告白场景，樱花树下",
+    "director_style": null
+  },
+  "storyboard": {
+    "template_name": "爱情片浪漫3×3",
+    "shots": [
+      {
+        "index": 1,
+        "name": "浪漫场景",
+        "shot_type": "远景",
+        "angle": "",
+        "movement": "",
+        "duration": "",
+        "description": "建立故事发生的空间环境",
+        "sound": "",
+        "color": "",
+        "prompt": "Romantic location wide shot, beautiful scenery, golden hour, dreamy atmosphere, love story setting"
+      },
+      {
+        "index": 2,
+        "name": "初次相遇",
+        "shot_type": "全景",
+        "angle": "",
+        "movement": "",
+        "duration": "",
+        "description": "主要人物进入画面",
+        "sound": "",
+        "color": "",
+        "prompt": "First meeting moment, fateful encounter, wide framing, chemistry building, romantic potential"
+      },
+      {
+        "index": 3,
+        "name": "关系萌芽",
+        "shot_type": "中全景",
+        "angle": "",
+        "movement": "",
+        "duration": "",
+        "description": "人物与环境/人物间关系",
+        "sound": "",
+        "color": "",
+        "prompt": "Budding relationship, growing connection, two-shot composition, comfortable distance, sweet interaction"
+      },
+      {
+        "index": 4,
+        "name": "情感交流",
+        "shot_type": "中景",
+        "angle": "",
+        "movement": "",
+        "duration": "",
+        "description": "核心动作开始",
+        "sound": "",
+        "color": "",
+        "prompt": "Emotional exchange, meaningful conversation, over-shoulder shots, intimate space, growing bond"
+      },
+      {
+        "index": 5,
+        "name": "心动瞬间",
+        "shot_type": "中近景",
+        "angle": "",
+        "movement": "",
+        "duration": "",
+        "description": "情绪发生变化的关键点",
+        "sound": "",
+        "color": "",
+        "prompt": "Heart flutter moment, romantic realization, soft focus, tender lighting, emotional peak"
+      },
+      {
+        "index": 6,
+        "name": "亲密细节",
+        "shot_type": "近景",
+        "angle": "",
+        "movement": "",
+        "duration": "",
+        "description": "重要细节展示",
+        "sound": "",
+        "color": "",
+        "prompt": "Intimate detail, touching hands, loving gesture, soft lighting, tactile romance"
+      },
+      {
+        "index": 7,
+        "name": "定情信物",
+        "shot_type": "特写A",
+        "angle": "",
+        "movement": "",
+        "duration": "",
+        "description": "具有象征意义的物品/细节",
+        "sound": "",
+        "color": "",
+        "prompt": "Love token extreme close-up, symbolic object, sentimental value, warm tones, love symbol"
+      },
+      {
+        "index": 8,
+        "name": "深情凝视",
+        "shot_type": "特写B",
+        "angle": "",
+        "movement": "",
+        "duration": "",
+        "description": "人物内心世界的映射",
+        "sound": "",
+        "color": "",
+        "prompt": "Loving gaze, eyes full of emotion, romantic close-up, soft focus, deep connection"
+      },
+      {
+        "index": 9,
+        "name": "幸福结局",
+        "shot_type": "远景",
+        "angle": "",
+        "movement": "",
+        "duration": "",
+        "description": "开放式结局，给观众想象空间",
+        "sound": "",
+        "color": "",
+        "prompt": "Happy ending wide shot, couple together, romantic sunset, hopeful future, love triumphs"
+      }
+    ]
+  },
+  "director_info": null,
+  "grammar_rules": {
+    "angle_30_rule": {
+      "description": "相邻镜头角度差≥30°",
+      "suggested_sequence": [
+        0,
+        45,
+        0,
+        45,
+        0,
+        45,
+        0,
+        45,
+        0
+      ],
+      "note": "避免跳切造成的视觉跳跃"
+    },
+    "eyeline_match": {
+      "description": "关键帧视线连贯",
+      "keyframe_positions": [
+        2,
+        5,
+        8
+      ],
+      "check_result": [
+        {
+          "position": 2,
+          "shot_name": "初次相遇",
+          "eyeline_check": "需要保持视线方向一致",
+          "suggestion": "确保第2格的视线与前后镜头连贯"
+        },
+        {
+          "position": 5,
+          "shot_name": "心动瞬间",
+          "eyeline_check": "需要保持视线方向一致",
+          "suggestion": "确保第5格的视线与前后镜头连贯"
+        },
+        {
+          "position": 8,
+          "shot_name": "深情凝视",
+          "eyeline_check": "需要保持视线方向一致",
+          "suggestion": "确保第8格的视线与前后镜头连贯"
+        }
+      ]
+    },
+    "action_axis": {
+      "description": "动作轴线一致性",
+      "recommended_axis": {
+        "name": "内三角轴线",
+        "description": "适用于3×3标准叙事板，形成稳定的三角形运动轨迹",
+        "pattern": [
+          [
+            0,
+            0
+          ],
+          [
+            1,
+            0.5
+          ],
+          [
+            0.5,
+            1
+          ]
+        ],
+        "suitable_for": "3x3_standard",
+        "advantage": "稳定、经典、易于理解"
+      },
+      "annotated_shots": [
+        {
+          "index": 1,
+          "name": "浪漫场景",
+          "shot_type": "远景",
+          "angle": "",
+          "movement": "",
+          "duration": "",
+          "description": "建立故事发生的空间环境",
+          "sound": "",
+          "color": "",
+          "prompt": "Romantic location wide shot, beautiful scenery, golden hour, dreamy atmosphere, love story setting",
+          "axis_position": 1,
+          "axis_note": "保持内三角轴线轴线一致性",
+          "direction_check": "检查人物/运动方向是否一致"
+        },
+        {
+          "index": 2,
+          "name": "初次相遇",
+          "shot_type": "全景",
+          "angle": "",
+          "movement": "",
+          "duration": "",
+          "description": "主要人物进入画面",
+          "sound": "",
+          "color": "",
+          "prompt": "First meeting moment, fateful encounter, wide framing, chemistry building, romantic potential",
+          "axis_position": 2,
+          "axis_note": "保持内三角轴线轴线一致性",
+          "direction_check": "检查人物/运动方向是否一致",
+          "continuity": "与前镜头保持轴线关系"
+        },
+        {
+          "index": 3,
+          "name": "关系萌芽",
+          "shot_type": "中全景",
+          "angle": "",
+          "movement": "",
+          "duration": "",
+          "description": "人物与环境/人物间关系",
+          "sound": "",
+          "color": "",
+          "prompt": "Budding relationship, growing connection, two-shot composition, comfortable distance, sweet interaction",
+          "axis_position": 3,
+          "axis_note": "保持内三角轴线轴线一致性",
+          "direction_check": "检查人物/运动方向是否一致",
+          "continuity": "与前镜头保持轴线关系"
+        },
+        {
+          "index": 4,
+          "name": "情感交流",
+          "shot_type": "中景",
+          "angle": "",
+          "movement": "",
+          "duration": "",
+          "description": "核心动作开始",
+          "sound": "",
+          "color": "",
+          "prompt": "Emotional exchange, meaningful conversation, over-shoulder shots, intimate space, growing bond",
+          "axis_position": 4,
+          "axis_note": "保持内三角轴线轴线一致性",
+          "direction_check": "检查人物/运动方向是否一致",
+          "continuity": "与前镜头保持轴线关系"
+        },
+        {
+          "index": 5,
+          "name": "心动瞬间",
+          "shot_type": "中近景",
+          "angle": "",
+          "movement": "",
+          "duration": "",
+          "description": "情绪发生变化的关键点",
+          "sound": "",
+          "color": "",
+          "prompt": "Heart flutter moment, romantic realization, soft focus, tender lighting, emotional peak",
+          "axis_position": 5,
+          "axis_note": "保持内三角轴线轴线一致性",
+          "direction_check": "检查人物/运动方向是否一致",
+          "continuity": "与前镜头保持轴线关系"
+        },
+        {
+          "index": 6,
+          "name": "亲密细节",
+          "shot_type": "近景",
+          "angle": "",
+          "movement": "",
+          "duration": "",
+          "description": "重要细节展示",
+          "sound": "",
+          "color": "",
+          "prompt": "Intimate detail, touching hands, loving gesture, soft lighting, tactile romance",
+          "axis_position": 6,
+          "axis_note": "保持内三角轴线轴线一致性",
+          "direction_check": "检查人物/运动方向是否一致",
+          "continuity": "与前镜头保持轴线关系"
+        },
+        {
+          "index": 7,
+          "name": "定情信物",
+          "shot_type": "特写A",
+          "angle": "",
+          "movement": "",
+          "duration": "",
+          "description": "具有象征意义的物品/细节",
+          "sound": "",
+          "color": "",
+          "prompt": "Love token extreme close-up, symbolic object, sentimental value, warm tones, love symbol",
+          "axis_position": 7,
+          "axis_note": "保持内三角轴线轴线一致性",
+          "direction_check": "检查人物/运动方向是否一致",
+          "continuity": "与前镜头保持轴线关系"
+        },
+        {
+          "index": 8,
+          "name": "深情凝视",
+          "shot_type": "特写B",
+          "angle": "",
+          "movement": "",
+          "duration": "",
+          "description": "人物内心世界的映射",
+          "sound": "",
+          "color": "",
+          "prompt": "Loving gaze, eyes full of emotion, romantic close-up, soft focus, deep connection",
+          "axis_position": 8,
+          "axis_note": "保持内三角轴线轴线一致性",
+          "direction_check": "检查人物/运动方向是否一致",
+          "continuity": "与前镜头保持轴线关系"
+        },
+        {
+          "index": 9,
+          "name": "幸福结局",
+          "shot_type": "远景",
+          "angle": "",
+          "movement": "",
+          "duration": "",
+          "description": "开放式结局，给观众想象空间",
+          "sound": "",
+          "color": "",
+          "prompt": "Happy ending wide shot, couple together, romantic sunset, hopeful future, love triumphs",
+          "axis_position": 9,
+          "axis_note": "保持内三角轴线轴线一致性",
+          "direction_check": "检查人物/运动方向是否一致",
+          "continuity": "与前镜头保持轴线关系"
+        }
+      ]
+    },
+    "color_evolution": {
+      "description": "色调渐变",
+      "note": "根据情感基调调整色调"
+    },
+    "soundscape": {
+      "description": "声景设计",
+      "keyframe_hints": {
+        "2": {
+          "suggestion": "人物入场音效",
+          "types": [
+            "foley",
+            "ambient"
+          ],
+          "note": "配合人物动作的脚步声或环境音"
+        },
+        "5": {
+          "suggestion": "情绪转折音效",
+          "types": [
+            "music",
+            "effect"
+          ],
+          "note": "音乐情绪转变或关键音效"
+        },
+        "8": {
+          "suggestion": "心理镜像音效",
+          "types": [
+            "silence",
+            "effect"
+          ],
+          "note": "静默或内心独白的回声效果"
+        }
+      },
+      "sound_plan": [
+        {
+          "shot_index": 1,
+          "shot_name": "浪漫场景",
+          "primary_sound": {
+            "name": "环境音",
+            "description": "背景环境声音",
+            "examples": [
+              "风声",
+              "雨声",
+              "城市噪音",
+              "鸟鸣"
+            ],
+            "priority": "低",
+            "function": "营造氛围"
+          },
+          "secondary_sounds": [
+            {
+              "name": "音乐",
+              "description": "背景音乐",
+              "examples": [
+                "主题曲",
+                "情绪音乐",
+                "过渡音乐"
+              ],
+              "priority": "中",
+              "function": "情绪引导"
+            }
+          ],
+          "transition": null
+        },
+        {
+          "shot_index": 2,
+          "shot_name": "初次相遇",
+          "primary_sound": {
+            "name": "环境音",
+            "description": "背景环境声音",
+            "examples": [
+              "风声",
+              "雨声",
+              "城市噪音",
+              "鸟鸣"
+            ],
+            "priority": "低",
+            "function": "营造氛围"
+          },
+          "secondary_sounds": [],
+          "transition": null,
+          "keyframe_note": "人物入场音效"
+        },
+        {
+          "shot_index": 3,
+          "shot_name": "关系萌芽",
+          "primary_sound": {
+            "name": "环境音",
+            "description": "背景环境声音",
+            "examples": [
+              "风声",
+              "雨声",
+              "城市噪音",
+              "鸟鸣"
+            ],
+            "priority": "低",
+            "function": "营造氛围"
+          },
+          "secondary_sounds": [],
+          "transition": null
+        },
+        {
+          "shot_index": 4,
+          "shot_name": "情感交流",
+          "primary_sound": {
+            "name": "环境音",
+            "description": "背景环境声音",
+            "examples": [
+              "风声",
+              "雨声",
+              "城市噪音",
+              "鸟鸣"
+            ],
+            "priority": "低",
+            "function": "营造氛围"
+          },
+          "secondary_sounds": [],
+          "transition": null
+        },
+        {
+          "shot_index": 5,
+          "shot_name": "心动瞬间",
+          "primary_sound": {
+            "name": "环境音",
+            "description": "背景环境声音",
+            "examples": [
+              "风声",
+              "雨声",
+              "城市噪音",
+              "鸟鸣"
+            ],
+            "priority": "低",
+            "function": "营造氛围"
+          },
+          "secondary_sounds": [],
+          "transition": null,
+          "keyframe_note": "情绪转折音效"
+        },
+        {
+          "shot_index": 6,
+          "shot_name": "亲密细节",
+          "primary_sound": {
+            "name": "环境音",
+            "description": "背景环境声音",
+            "examples": [
+              "风声",
+              "雨声",
+              "城市噪音",
+              "鸟鸣"
+            ],
+            "priority": "低",
+            "function": "营造氛围"
+          },
+          "secondary_sounds": [],
+          "transition": null
+        },
+        {
+          "shot_index": 7,
+          "shot_name": "定情信物",
+          "primary_sound": {
+            "name": "拟音",
+            "description": "动作音效",
+            "examples": [
+              "脚步声",
+              "关门声",
+              "物体碰撞"
+            ],
+            "priority": "中",
+            "function": "增强真实感"
+          },
+          "secondary_sounds": [
+            {
+              "name": "环境音",
+              "description": "背景环境声音",
+              "examples": [
+                "风声",
+                "雨声",
+                "城市噪音",
+                "鸟鸣"
+              ],
+              "priority": "低",
+              "function": "营造氛围"
+            }
+          ],
+          "transition": null
+        },
+        {
+          "shot_index": 8,
+          "shot_name": "深情凝视",
+          "primary_sound": {
+            "name": "拟音",
+            "description": "动作音效",
+            "examples": [
+              "脚步声",
+              "关门声",
+              "物体碰撞"
+            ],
+            "priority": "中",
+            "function": "增强真实感"
+          },
+          "secondary_sounds": [
+            {
+              "name": "环境音",
+              "description": "背景环境声音",
+              "examples": [
+                "风声",
+                "雨声",
+                "城市噪音",
+                "鸟鸣"
+              ],
+              "priority": "低",
+              "function": "营造氛围"
+            }
+          ],
+          "transition": null,
+          "keyframe_note": "心理镜像音效"
+        },
+        {
+          "shot_index": 9,
+          "shot_name": "幸福结局",
+          "primary_sound": {
+            "name": "环境音",
+            "description": "背景环境声音",
+            "examples": [
+              "风声",
+              "雨声",
+              "城市噪音",
+              "鸟鸣"
+            ],
+            "priority": "低",
+            "function": "营造氛围"
+          },
+          "secondary_sounds": [
+            {
+              "name": "音乐",
+              "description": "背景音乐",
+              "examples": [
+                "主题曲",
+                "情绪音乐",
+                "过渡音乐"
+              ],
+              "priority": "中",
+              "function": "情绪引导"
+            }
+          ],
+          "transition": null
+        }
+      ]
+    }
+  },
+  "color_evolution": [
+    {
+      "shot_index": 1,
+      "emotion": "喜悦",
+      "primary_color": "#FFE4B5",
+      "secondary_color": "#FFD700",
+      "description": "暖色调，高饱和度",
+      "lighting": "明亮、逆光",
+      "mood": "温暖、积极"
+    },
+    {
+      "shot_index": 2,
+      "emotion": "喜悦",
+      "primary_color": "#FFE4B5",
+      "secondary_color": "#FFD700",
+      "description": "暖色调，高饱和度",
+      "lighting": "明亮、逆光",
+      "mood": "温暖、积极"
+    },
+    {
+      "shot_index": 3,
+      "emotion": "喜悦",
+      "primary_color": "#FFE4B5",
+      "secondary_color": "#FFD700",
+      "description": "暖色调，高饱和度",
+      "lighting": "明亮、逆光",
+      "mood": "温暖、积极"
+    },
+    {
+      "shot_index": 4,
+      "emotion": "激情",
+      "primary_color": "#DC143C",
+      "secondary_color": "#FF4500",
+      "description": "红橙色调，高饱和度",
+      "lighting": "戏剧化照明",
+      "mood": "热烈、冲动"
+    },
+    {
+      "shot_index": 5,
+      "emotion": "激情",
+      "primary_color": "#DC143C",
+      "secondary_color": "#FF4500",
+      "description": "红橙色调，高饱和度",
+      "lighting": "戏剧化照明",
+      "mood": "热烈、冲动"
+    },
+    {
+      "shot_index": 6,
+      "emotion": "激情",
+      "primary_color": "#DC143C",
+      "secondary_color": "#FF4500",
+      "description": "红橙色调，高饱和度",
+      "lighting": "戏剧化照明",
+      "mood": "热烈、冲动"
+    },
+    {
+      "shot_index": 7,
+      "emotion": "喜悦",
+      "primary_color": "#FFE4B5",
+      "secondary_color": "#FFD700",
+      "description": "暖色调，高饱和度",
+      "lighting": "明亮、逆光",
+      "mood": "温暖、积极"
+    },
+    {
+      "shot_index": 8,
+      "emotion": "喜悦",
+      "primary_color": "#FFE4B5",
+      "secondary_color": "#FFD700",
+      "description": "暖色调，高饱和度",
+      "lighting": "明亮、逆光",
+      "mood": "温暖、积极"
+    },
+    {
+      "shot_index": 9,
+      "emotion": "喜悦",
+      "primary_color": "#FFE4B5",
+      "secondary_color": "#FFD700",
+      "description": "暖色调，高饱和度",
+      "lighting": "明亮、逆光",
+      "mood": "温暖、积极"
+    }
+  ],
+  "usage_guide": {
+    "prompt_usage": {
+      "description": "每个镜头的prompt可用于AI图像生成工具",
+      "tips": [
+        "可根据实际需求修改描述细节",
+        "保持整体风格一致性",
+        "注意人物/场景的连贯性"
+      ]
+    },
+    "grammar_rules": {
+      "description": "电影语法规则确保专业质量",
+      "key_points": [
+        "30°原则：相邻镜头角度差≥30°",
+        "视线匹配：关键帧保持视线连贯",
+        "动作轴线：保持运动方向一致",
+        "色调演进：根据情感调整色调"
+      ]
+    },
+    "workflow": {
+      "steps": [
+        "1. 根据生成的提示词创建视觉参考",
+        "2. 检查语法规则的应用",
+        "3. 调整色调演进方案",
+        "4. 添加声景设计",
+        "5. 输出最终分镜脚本"
+      ]
+    }
+  }
+}

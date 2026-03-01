@@ -1,0 +1,86 @@
+workflow:
+  id: "WF-008"
+  name: "角色驱动故事创作"
+  version: "1.0"
+  description: "从角色设计开始的故事创作流程"
+  category: "creation"
+  
+  input:
+    required:
+      - name: "character_type"
+        type: "string"
+        description: "角色类型（如：英雄、反派、普通人等）"
+      - name: "story_context"
+        type: "string"
+        description: "故事背景"
+      - name: "genre"
+        type: "string"
+        description: "故事类型"
+    optional:
+      - name: "personality_traits"
+        type: "array"
+        description: "性格特征"
+      - name: "background"
+        type: "string"
+        description: "角色背景"
+      - name: "target_audience"
+        type: "string"
+        description: "目标受众"
+      - name: "duration"
+        type: "string"
+        description: "时长要求"
+  
+  steps:
+    - id: "step_1"
+      name: "创建角色"
+      node_id: "NODE-015"
+      agent: "character-creator-agent"
+      action: "create_character"
+      input:
+        character_type: "${input.character_type}"
+        story_context: "${input.story_context}"
+        personality_traits: "${input.personality_traits}"
+        background: "${input.background}"
+      output_var: "character_profile"
+      timeout: "10m"
+    
+    - id: "step_2"
+      name: "基于角色创作剧本"
+      node_id: "NODE-005"
+      agent: "script-master-agent"
+      action: "write_script"
+      input:
+        story_concept: "${input.story_context}"
+        genre: "${input.genre}"
+        character_profile: "${character_profile}"
+        duration: "${input.duration}"
+      output_var: "script"
+      timeout: "15m"
+    
+    - id: "step_3"
+      name: "评审剧本"
+      node_id: "NODE-001"
+      agent: "content-review-agent"
+      action: "review"
+      input:
+        content: "${script}"
+        type: "剧本"
+        audience: "${input.target_audience}"
+      output_var: "review_result"
+      timeout: "10m"
+  
+  output:
+    - name: "character_profile"
+      source: "${character_profile}"
+      description: "详细的角色档案"
+    - name: "script"
+      source: "${script}"
+      description: "完整剧本"
+    - name: "review_report"
+      source: "${review_result}"
+      description: "评审报告"
+  
+  error_handling:
+    on_failure: "return_partial_results"
+    retry_count: 1
+    retry_delay: "30s"

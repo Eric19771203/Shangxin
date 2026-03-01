@@ -1,0 +1,17 @@
+{
+  "selectors": {
+    "prompt_input": ".creation-input-area textarea",
+    "generate_button": ".generate-btn",
+    "model_select": ".model-select-trigger",
+    "ratio_select": ".ratio-select-trigger",
+    "history_list": ".task-list-item",
+    "download_button": ".download-icon"
+  },
+  "urls": {
+    "generate_page": "https://jimeng.jianying.com/ai-tool/video/generate"
+  },
+  "timeouts": {
+    "page_load": 30000,
+    "generation": 300000
+  }
+}

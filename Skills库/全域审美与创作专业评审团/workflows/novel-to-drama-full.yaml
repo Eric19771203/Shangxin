@@ -1,0 +1,78 @@
+workflow:
+  id: "WF-004"
+  name: "网文改编短剧全流程"
+  version: "1.0"
+  description: "网文小说改编为短剧的完整流程"
+  category: "adaptation"
+  
+  input:
+    required:
+      - name: "novel_content"
+        type: "string"
+        description: "网文小说内容"
+      - name: "target_duration"
+        type: "string"
+        description: "目标时长（如：60集×2分钟）"
+    optional:
+      - name: "key_scenes"
+        type: "array"
+        description: "必须保留的关键场景"
+      - name: "character_focus"
+        type: "array"
+        description: "重点角色"
+      - name: "target_platform"
+        type: "string"
+        description: "目标平台"
+  
+  steps:
+    - id: "step_1"
+      name: "改编为短剧剧本"
+      node_id: "NODE-007"
+      agent: "novel-to-drama-agent"
+      action: "adapt"
+      input:
+        novel_content: "${input.novel_content}"
+        target_duration: "${input.target_duration}"
+        key_scenes: "${input.key_scenes}"
+        character_focus: "${input.character_focus}"
+      output_var: "adapted_script"
+      timeout: "15m"
+    
+    - id: "step_2"
+      name: "评审改编剧本"
+      node_id: "NODE-001"
+      agent: "content-review-agent"
+      action: "review"
+      input:
+        content: "${adapted_script}"
+        type: "短剧剧本"
+        platform: "${input.target_platform}"
+      output_var: "review_result"
+      timeout: "10m"
+    
+    - id: "step_3"
+      name: "生成分镜头脚本"
+      node_id: "NODE-008"
+      agent: "storyboard-master-agent"
+      action: "create_storyboard"
+      input:
+        script: "${adapted_script}"
+      output_var: "storyboard"
+      timeout: "10m"
+      condition: "${review_result.score} >= 90"
+  
+  output:
+    - name: "adapted_script"
+      source: "${adapted_script}"
+      description: "改编后的短剧剧本"
+    - name: "review_report"
+      source: "${review_result}"
+      description: "评审报告"
+    - name: "storyboard"
+      source: "${storyboard}"
+      description: "分镜头脚本（如果评分达标）"
+  
+  error_handling:
+    on_failure: "return_partial_results"
+    retry_count: 1
+    retry_delay: "30s"

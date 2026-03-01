@@ -1,0 +1,76 @@
+**【创世架构师】**已启动**“剪辑思维 (Editorial Thinking)”**模式。
+
+在影视制作中，单独生成完美的镜头只是第一步，**“镜头之间如何流动”**才是产生电影感的关键。AI视频最大的痛点往往是镜头切换时“跳戏”。
+
+为了解决这个问题，我为您设计了**“视觉桥接 (Visual Bridging)”**提示词。这套方案不依赖AI的变形过渡（Morph），而是基于**好莱坞经典的剪辑蒙太奇逻辑**（如：图形匹配、视线引导、动作接续），确保您在后期剪辑时，这些镜头能像巧克力一样丝滑地拼在一起。
+
+以下是 **Scene 01 到 Scene 09 的无缝衔接指南**。
+
+---
+
+### 🔗 场景衔接指引 (Transition Guide)
+
+#### **1. [Shot 1 EST 哨所] ➡️ [Shot 2 MASTER 背影]**
+*   **衔接逻辑**：**推轨穿透 (The Push-Through)**。
+    *   镜头1向窗户推进，直到窗框填满画面；镜头2从背影开始，仿佛我们刚刚穿过了窗户进入室内。
+*   **Shot 1 (End Prompt)**: `...camera continues to dolly forward, getting closer and closer to the station window until the window frame dominates the view.`
+*   **Shot 2 (Start Prompt)**: `...camera starts close behind the astronaut's dark silhouette, establishing the interior immediately.`
+
+#### **2. [Shot 2 MASTER 背影] ➡️ [Shot 3 MED 侧颜]**
+*   **衔接逻辑**：**轴向跳切 (Axial Cut)**。
+    *   利用罗默的**举杯动作**作为剪辑点。全景中他刚要举杯，中景里杯子正好送到嘴边。
+*   **Shot 2 (End Prompt)**: `...the astronaut begins to lift his elbow slightly, preparing to drink.`
+*   **Shot 3 (Start Prompt)**: `...the cup is already raised near the chin level, continuing the upward motion seamlessly.`
+
+#### **3. [Shot 3 MED 侧颜] ➡️ [Shot 4 OTS 木星]**
+*   **衔接逻辑**：**视线匹配 (Eyeline Match)**。
+    *   罗默看向窗外 -> 观众看到他看的东西。
+*   **Shot 3 (End Prompt)**: `...Luo Mo stops moving and stares intensely at a specific point outside the window. Rack focus to the reflection in his eye.`
+*   **Shot 4 (Start Prompt)**: `...Start with the view of Jupiter already in focus, matching the angle of his gaze.`
+
+#### **4. [Shot 4 OTS 木星] ➡️ [Shot 5 INSERT 茶杯]**
+*   **衔接逻辑**：**图形匹配 (Graphic Match) —— 本片最高级的转场**。
+    *   利用**木星的大红斑 (圆)** 与 **茶杯里的漩涡 (圆)** 进行视觉重叠。宏观与微观的极致对比。
+*   **Shot 4 (End Prompt)**: `...Focus centers on the Great Red Spot of the flattened Jupiter, which is swirling slowly.`
+*   **Shot 5 (Start Prompt)**: `...Top-down angle or macro shot. The circular rim of the tea glass matches the position of Jupiter. The swirling tea leaves mimic the storm clouds.`
+
+#### **5. [Shot 5 INSERT 茶杯] ➡️ [Shot 6 CU 眼神]**
+*   **衔接逻辑**：**烟雾转场 (Steam Wipe)**。
+    *   利用茶杯升起的蒸汽遮挡镜头，再从蒸汽中浮现出罗默的脸。
+*   **Shot 5 (End Prompt)**: `...The steam rises thicker and moves towards the camera lens, slightly obscuring the view (natural fade out).`
+*   **Shot 6 (Start Prompt)**: `...The shot begins with a thin layer of steam/haze clearing, revealing the extreme close-up of the eyes.`
+
+#### **6. [Shot 6 CU 眼神] ➡️ [Shot 7 DYNAMIC 空间崩塌]**
+*   **衔接逻辑**：**光影突变 (Lighting Shock)**。
+    *   Shot 6 结尾处光线突然变暗或变色，Shot 7 以同样诡异的光线开始，伴随镜头的倾斜。
+*   **Shot 6 (End Prompt)**: `...Suddenly, a harsh shadow falls over the eyes. The warm light turns into a flat, unnatural red glow.`
+*   **Shot 7 (Start Prompt)**: `...Start with the Dutch angle tilt immediately. The room is already bathed in that same harsh red flat lighting.`
+
+#### **7. [Shot 7 DYNAMIC 空间崩塌] ➡️ [Shot 8 POV 手部消散]**
+*   **衔接逻辑**：**动作接续 (Action Match)**。
+    *   Shot 7 中罗默伸手去触碰虚空，Shot 8 直接接他的主观视角看这只手。
+*   **Shot 7 (End Prompt)**: `...Luo Mo slowly raises his hand towards the camera/window as the room distorts.`
+*   **Shot 8 (Start Prompt)**: `...First person view. The hand is already raised in the frame, matching the previous motion, and begins to dissolve.`
+
+#### **8. [Shot 8 POV 手部消散] ➡️ [Shot 9 MOOD 空镜]**
+*   **衔接逻辑**：**留白剪辑 (The Void Cut)**。
+    *   手部完全消失成粒子（画面变空/变亮），切到原本就空无一人的静物画面。
+*   **Shot 8 (End Prompt)**: `...The hand completely dissolves into particles, leaving only the bright void of the 2D universe visible.`
+*   **Shot 9 (Start Prompt)**: `...Static shot. The empty chair and the tea flask. The light is consistent with the previous void, but now silence reigns.`
+
+---
+
+### 💡 给用户的后期剪辑建议 (Editor's Note)
+
+在您使用剪辑软件（如 Premiere, DaVinci, CapCut）组合这些生成好的视频时，请注意：
+
+1.  **关于转场特效**：
+    *   **Shot 4 -> Shot 5 (木星变茶杯)**：使用 **"Dissolve (叠化)"**，时长约 0.5秒 - 1秒。让木星慢慢变成茶杯，这是向《2001太空漫游》骨头变飞船致敬的镜头。
+    *   **Shot 7 -> Shot 8 (崩塌到POV)**：使用 **"Hard Cut (硬切)"**。要在视觉冲击力最强的那一帧直接切断，不要拖泥带水。
+2.  **关于声音设计 (Sound Design)**：
+    *   **前3个镜头**：只有微弱的机器嗡嗡声。
+    *   **Shot 4 (木星)**：加入低频的轰鸣声 (Low Rumble)。
+    *   **Shot 5 (茶杯)**：轰鸣声突然消失，变成清晰的倒水声或茶叶碰撞玻璃的清脆声（超现实听觉）。
+    *   **Shot 9 (结尾)**：绝对的寂静，只有秒针走动的一声“嗒”。
+
+有了这套衔接提示词，您的视频将不再是“9张动图的幻灯片”，而是一部**连贯流畅的微电影**。

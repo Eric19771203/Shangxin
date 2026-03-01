@@ -1,0 +1,113 @@
+这是一个为追求**影视工业级（Cinematic Industrial Standard）**品质而设计的系统化提示词生成框架。
+
+为了满足“细节极致”的要求，我们将提示词结构设计为**“洋葱式”层级**，从骨相到皮肤，从材质到光影，层层包裹。这套系统不仅适用于Midjourney v6，也适用于Stable Diffusion XL (SDXL) 和 FLUX.1 等高端模型。
+
+---
+
+### 👑 终极人物定妆生成系统 (The Ultimate Character Lookdev System)
+
+#### 核心指令 (System Instruction)
+> **Role (角色设定):** 你现在是好莱坞顶级的首席角色概念设计师 (Lead Character Concept Artist) 和 传奇人像摄影师 (Legendary Portrait Photographer)。
+> **Goal (目标):** 将枯燥的文字设定转化为具有**物理真实感 (Physically Based)**、**叙事张力 (Narrative Tension)** 和 **解剖学正确性 (Anatomical Correctness)** 的超高清定妆照。
+
+---
+
+### 第一部分：万能结构公式 (The Master Formula)
+
+请严格按照以下顺序构建提示词，**权重由前向后递减**，越靠前的信息对画面影响越大。
+
+```markdown
+[1. 摄影风格与媒介] + [2. 核心人物画像与骨相] + [3. 皮肤生理学细节] + [4. 毛发与妆造] + [5. 服装材质科学] + [6. 表情与神态叙事] + [7. 影视布光方案] + [8. 环境与构图] + [9. 渲染引擎与技术参数]
+```
+
+---
+
+### 第二部分：极致细节词库 (The Detail Library)
+
+请根据你的《人物小传》从以下词库中挑选关键词填入上述公式。
+
+#### 1. 摄影风格与媒介 (Medium & Style)
+*用于定义画面的“质感基调”。*
+*   **胶片感:** `Shot on Kodak Portra 400`, `35mm film grain`, `IMAX format`, `cinematic stillness`.
+*   **镜头语言:** `Close-up shot (特写)`, `Medium shot (中景)`, `Low angle (低角度仰拍-权威感)`, `Dutch angle (倾斜构图-不安感)`.
+*   **导演美学:** `Style of Roger Deakins (罗杰·狄金斯-极致光影)`, `Style of Denis Villeneuve (维伦纽瓦-史诗肃穆)`, `Wong Kar-wai aesthetic (王家卫-情绪化)`, `Cyberpunk 2077 art style`.
+
+#### 2. 核心人物画像与骨相 (Identity & Bone Structure)
+*用于确立人物的生物学基础，拒绝“大众脸”。*
+*   **种族与年龄:** `[Ethnicity] male/female`, `biological age [Number]`, `weather-beaten face (饱经风霜的脸)`.
+*   **面部架构:** `High cheekbones (高颧骨)`, `strong jawline (强下颚)`, `sunken cheeks (凹陷脸颊)`, `broad forehead (宽额头)`, `roman nose (罗马鼻)`, `facial asymmetry (面部不对称-增加真实感)`.
+*   **体态:** `Broad shoulders`, `slender neck`, `hulking physique (魁梧体格)`.
+
+#### 3. 皮肤生理学细节 (Dermatological Details) - **关键层**
+*这是AI生成“假人”还是“真人”的分水岭。*
+*   **质感:** `Hyper-realistic skin texture`, `visible skin pores (清晰毛孔)`, `subsurface scattering (SSS材质-透光感)`, `micro-displacement (微置换纹理)`.
+*   **瑕疵美学 (Imperfections):** `Acne scars (痘印)`, `hyper-pigmentation (色素沉着)`, `broken capillaries (红血丝)`, `slight perspiration (轻微汗珠)`, `oily T-zone (T区出油)`, `freckles mapping (雀斑分布)`, `wrinkles around eyes (鱼尾纹)`.
+*   **特殊状态:** `Grime and dirt in pores (毛孔里的污垢)`, `fresh wounds (新伤)`, `caked mud (结块的泥)`.
+
+#### 4. 毛发与妆造 (Grooming)
+*描述毛发的物理属性。*
+*   **头发:** `Strand-by-strand detail (发丝级细节)`, `frizzy flyaways (飞翘的碎发)`, `greasy hair roots (油腻发根)`, `receding hairline (后移的发际线)`, `bleached tips (漂染发梢)`.
+*   **面部毛发:** `Stubble (胡茬)`, `peach fuzz on cheeks (脸颊绒毛-极其重要)`, `unruly eyebrows (杂乱的眉毛)`.
+*   **妆容:** `Smudged eyeliner (晕开的眼线)`, `chipped lipstick (斑驳的口红)`, `war paint`, `ceremonial tattoos`.
+
+#### 5. 服装材质科学 (Costume & Material Science)
+*不要只说“衣服”，要说“面料”和“状态”。*
+*   **面料:** `Heavyweight denim (重磅丹宁)`, `ballistic nylon (弹道尼龙)`, `sheer silk (透明丝绸)`, `oxidized copper armor (氧化铜甲)`, `distressed leather (做旧皮革)`.
+*   **做旧细节 (Wear & Tear):** `Frayed stitching (磨损的缝线)`, `moth holes (虫蛀孔)`, `blood spatter pattern`, `rust accumulation (积锈)`, `faded fabric dyes (褪色)`.
+*   **交互:** `Fabric clinging to body (湿衣贴身)`, `movement in wind`.
+
+#### 6. 表情与神态叙事 (Micro-Expressions)
+*传达角色的灵魂。*
+*   **眼神:** `Thousand-yard stare (呆滞凝视-PTSD特征)`, `piercing predatory gaze (掠食者凝视)`, `teary-eyed (含泪)`, `dilated pupils (瞳孔放大)`.
+*   **肌肉动作:** `Clenched jaw muscles (咬肌紧绷)`, `flared nostrils (鼻翼扩张-愤怒)`, `subtle smirk (微翘嘴角)`.
+
+#### 7. 影视布光方案 (Cinematic Lighting)
+*光影决定定妆照的层级。*
+*   **布光方式:** `Rembrandt lighting (伦勃朗光)`, `Split lighting (阴阳脸)`, `Rim light (轮廓光/发丝光)`, `Butterfly lighting (蝴蝶光-美颜)`, `Volumetric god rays (丁达尔光束)`.
+*   **色温与氛围:** `Neon noir (霓虹黑电影)`, `Cool teal shadows and warm orange highlights (青橙色调)`, `Diffused overcast light (阴天漫射光)`.
+
+#### 8. 渲染引擎与技术参数 (Render Tech Specs)
+*告诉AI按照最高标准渲染。*
+*   `Unreal Engine 5 render`, `Octane Render`, `Ray Tracing`, `Global Illumination`, `8k resolution`, `f/1.8 aperture (浅景深)`, `bokeh background`, `ultra-detailed`, `sharp focus`.
+
+---
+
+### 第三部分：实战生成示例 (Copy-Paste Ready)
+
+假设我们要生成一个：**《废土科幻背景下的反叛军女领袖》**。
+
+请看我是如何将上述模块组合成一段**极致**的提示词：
+
+> **[Prompt Start]**
+>
+> **(Style)** Cinematic portrait shot, IMAX 70mm film quality, gritty realism, style of Denis Villeneuve's Dune.
+>
+> **(Subject)** 30-year-old mixed-race female rebel leader, sharp angular facial structure, high cheekbones, intense and commanding presence.
+>
+> **(Skin & Anatomy)** Ultra-realistic skin texture with visible pores, **subsurface scattering**, distinct sun-damage and windburn on cheeks, layers of dust and grime settled into fine lines, a jagged scar running from eyebrow to cheek, slightly chapped lips, **sweat beads on forehead**.
+>
+> **(Hair)** Messy, practical braided hair, loose strands flying in the wind, texture of dry and coarse hair, grey dust particles trapped in hair.
+>
+> **(Costume)** Wearing a scavenged, mismatched tactical exoskeleton suit over a tattered poncho. Materials include **rusted metal joints**, distressed heavy canvas, and cracked leather straps. Detailed macro view of the fabric weave and oxidized metal scratches.
+>
+> **(Expression)** Gaze is piercing and unwavering, looking directly into the camera lens, micro-expression of defiance and exhaustion.
+>
+> **(Lighting)** Dramatic side lighting creating strong contrast (Chiaroscuro), warm golden sunset light hitting the side of the face (Rim light), while the shadow side is filled with cool ambient blue skylight.
+>
+> **(Tech)** Shot on ARRI Alexa 65, 85mm prime lens, f/2.8, depth of field blurring the destroyed city ruins in the background, 8k, hyper-detailed, masterpiece, chromatic aberration.
+>
+> **--ar 4:5 --stylize 300 --v 6.0**
+
+---
+
+### 第四部分：如何使用这套系统（给用户的操作指南）
+
+1.  **提取关键词：** 先通读你的《人物制作圣经》，提取出关于外貌、性格、环境的形容词。
+2.  **填空：** 将提取的词，按照第一部分的公式，替换到第三部分的示例中。
+3.  **强调材质：** 永远不要忘记描述材质（如：丝绸、生锈金属、毛孔）。
+4.  **微调参数：**
+    *   `--ar 2:3` 或 `--ar 9:16` 适合全身/半身定妆照（手机/海报比例）。
+    *   `--stylize 250` (MJ参数) 能够增加画面的艺术感和非写实感，如果要追求极度写实，可以降低到 `--stylize 100`。
+    *   `--no makeup` 如果你需要绝对真实的素颜感，请加上这个负面提示。
+
+这套系统生成的图片将不再是简单的“插画”，而是具有**厚重感和叙事性**的电影定妆海报。
