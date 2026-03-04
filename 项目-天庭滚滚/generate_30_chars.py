@@ -1,4 +1,7 @@
-# 天庭滚滚 - 30个角色小传 - 标准化格式（完整版）
+#!/usr/bin/env python3
+# -*- coding: utf-8 -*-
+
+content = """# 天庭滚滚 - 30个角色小传 - 标准化格式（完整版）
 
 **项目编号**：PRJ-003
 **格式**：核心身份 + 关键背景 + 核心动机 + 关键经历 + 核心特质 + 角色定位
@@ -948,3 +951,12 @@
 ---
 
 *30个角色小传标准化格式完整版已完成！*
+"""
+
+output_file = "/root/.openclaw/workspace/项目-天庭滚滚/天庭滚滚-30个角色小传-标准化格式-完整版.md"
+
+with open(output_file, 'w', encoding='utf-8') as f:
+    f.write(content)
+
+print(f"✅ 30个角色小传完整版已生成到：{output_file}")
+
