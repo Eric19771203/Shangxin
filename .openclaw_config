@@ -1,0 +1,14 @@
+# OpenClaw 优化配置（2026.3.9生效）
+## 上下文控制
+auto_load_memory = false
+max_context_tokens = 8000
+enable_session_history = false
+
+## 任务控制
+enable_heartbeat = false
+enable_auto_status_report = false
+
+## 成本控制
+enable_token_optimization = true
+minimize_prompt_length = true
+reuse_template_variables = true

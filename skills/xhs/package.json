@@ -1,0 +1,17 @@
+{
+  "name": "xhs",
+  "version": "1.2.1",
+  "description": "小红书内容创作与管理工具",
+  "main": "index.js",
+  "keywords": ["xiaohongshu", "xhs", "小红书", "content", "social"],
+  "author": "OpenClaw",
+  "license": "MIT",
+  "dependencies": {},
+  "skill": {
+    "id": "xhs",
+    "name": "小红书工具",
+    "version": "1.2.1",
+    "description": "小红书内容创作、发布、管理工具",
+    "triggers": ["小红书", "xhs", "笔记", "种草"]
+  }
+}
