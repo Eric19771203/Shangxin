@@ -1,0 +1,89 @@
+workflow:
+  id: "WF-006"
+  name: "TVC广告制作"
+  version: "1.0"
+  description: "TVC广告从创意到分镜的完整流程"
+  category: "commercial"
+  
+  input:
+    required:
+      - name: "product_info"
+        type: "string"
+        description: "产品信息"
+      - name: "duration"
+        type: "string"
+        description: "广告时长（如：15秒、30秒）"
+      - name: "target_region"
+        type: "string"
+        description: "目标区域（如：中国、北美、西欧等）"
+    optional:
+      - name: "visual_style"
+        type: "string"
+        description: "视觉风格（如：赛博朋克、迪士尼、新海诚等）"
+      - name: "language"
+        type: "string"
+        description: "语言"
+      - name: "brand_guidelines"
+        type: "string"
+        description: "品牌指南"
+      - name: "target_audience"
+        type: "string"
+        description: "目标受众"
+  
+  steps:
+    - id: "step_1"
+      name: "生成广告创意"
+      node_id: "NODE-002"
+      agent: "creative-generator-agent"
+      action: "generate_creative"
+      input:
+        theme: "${input.product_info}"
+        target_audience: "${input.target_audience}"
+        genre: "TVC广告"
+      output_var: "creative_concept"
+      timeout: "5m"
+    
+    - id: "step_2"
+      name: "创作TVC分镜"
+      node_id: "NODE-009"
+      agent: "tvc-storyboard-agent"
+      action: "create_tvc_storyboard"
+      input:
+        product_info: "${input.product_info}"
+        duration: "${input.duration}"
+        target_region: "${input.target_region}"
+        visual_style: "${input.visual_style}"
+        language: "${input.language}"
+        brand_guidelines: "${input.brand_guidelines}"
+        creative_concept: "${creative_concept}"
+      output_var: "tvc_storyboard"
+      timeout: "15m"
+    
+    - id: "step_3"
+      name: "评审TVC方案"
+      node_id: "NODE-001"
+      agent: "content-review-agent"
+      action: "review"
+      input:
+        content: "${tvc_storyboard}"
+        type: "TVC广告"
+        audience: "${input.target_audience}"
+        business_goal: "产品推广"
+      output_var: "review_result"
+      timeout: "10m"
+  
+  output:
+    - name: "creative_concept"
+      source: "${creative_concept}"
+      description: "广告创意概念"
+    - name: "tvc_storyboard"
+      source: "${tvc_storyboard}"
+      description: "TVC分镜脚本（含AI绘画提示词）"
+    - name: "review_report"
+      source: "${review_result}"
+      description: "评审报告"
+  
+  error_handling:
+    on_failure: "return_partial_results"
+    retry_count: 1
+    retry_delay: "30s"

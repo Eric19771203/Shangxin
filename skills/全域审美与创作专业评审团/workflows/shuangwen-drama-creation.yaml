@@ -1,0 +1,81 @@
+workflow:
+  id: "WF-005"
+  name: "爽文短剧创作"
+  version: "1.0"
+  description: "快速创作爽文短剧剧本"
+  category: "creation"
+  
+  input:
+    required:
+      - name: "theme"
+        type: "string"
+        description: "主题（如：逆袭、复仇、重生等）"
+      - name: "protagonist_type"
+        type: "string"
+        description: "主角类型（如：废柴逆袭、霸总、女强等）"
+    optional:
+      - name: "episode_count"
+        type: "integer"
+        description: "集数"
+      - name: "target_platform"
+        type: "string"
+        description: "目标平台"
+      - name: "target_audience"
+        type: "string"
+        description: "目标受众"
+  
+  steps:
+    - id: "step_1"
+      name: "生成爽文创意"
+      node_id: "NODE-002"
+      agent: "creative-generator-agent"
+      action: "generate_creative"
+      input:
+        theme: "${input.theme}"
+        target_audience: "${input.target_audience}"
+        genre: "爽文短剧"
+      output_var: "creative_concept"
+      timeout: "5m"
+    
+    - id: "step_2"
+      name: "创作爽文短剧剧本"
+      node_id: "NODE-006"
+      agent: "shuangwen-drama-agent"
+      action: "write_drama"
+      input:
+        theme: "${input.theme}"
+        protagonist_type: "${input.protagonist_type}"
+        episode_count: "${input.episode_count}"
+        target_platform: "${input.target_platform}"
+        creative_concept: "${creative_concept}"
+      output_var: "drama_script"
+      timeout: "15m"
+    
+    - id: "step_3"
+      name: "评审剧本"
+      node_id: "NODE-001"
+      agent: "content-review-agent"
+      action: "review"
+      input:
+        content: "${drama_script}"
+        type: "爽文短剧"
+        audience: "${input.target_audience}"
+        platform: "${input.target_platform}"
+      output_var: "review_result"
+      timeout: "10m"
+  
+  output:
+    - name: "creative_concept"
+      source: "${creative_concept}"
+      description: "创意概念"
+    - name: "drama_script"
+      source: "${drama_script}"
+      description: "爽文短剧剧本"
+    - name: "review_report"
+      source: "${review_result}"
+      description: "评审报告"
+  
+  error_handling:
+    on_failure: "return_partial_results"
+    retry_count: 1
+    retry_delay: "30s"

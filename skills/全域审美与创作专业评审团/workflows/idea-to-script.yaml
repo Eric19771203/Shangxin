@@ -1,0 +1,79 @@
+workflow:
+  id: "WF-002"
+  name: "创意到剧本"
+  version: "1.0"
+  description: "从创意生成到完整剧本的创作流程"
+  category: "creation"
+  
+  input:
+    required:
+      - name: "theme"
+        type: "string"
+        description: "主题或题材"
+      - name: "genre"
+        type: "string"
+        description: "类型（爽文/悬疑/爱情等）"
+    optional:
+      - name: "target_audience"
+        type: "string"
+        description: "目标受众"
+      - name: "duration"
+        type: "string"
+        description: "时长要求"
+      - name: "style"
+        type: "string"
+        description: "风格偏好"
+  
+  steps:
+    - id: "step_1"
+      name: "生成创意"
+      node_id: "NODE-002"
+      agent: "creative-generator-agent"
+      action: "generate_creative"
+      input:
+        theme: "${input.theme}"
+        target_audience: "${input.target_audience}"
+        genre: "${input.genre}"
+      output_var: "creative_concept"
+      timeout: "5m"
+    
+    - id: "step_2"
+      name: "创作剧本"
+      node_id: "NODE-005"
+      agent: "script-master-agent"
+      action: "write_script"
+      input:
+        story_concept: "${creative_concept}"
+        genre: "${input.genre}"
+        duration: "${input.duration}"
+        style: "${input.style}"
+      output_var: "script"
+      timeout: "10m"
+    
+    - id: "step_3"
+      name: "评审剧本"
+      node_id: "NODE-001"
+      agent: "content-review-agent"
+      action: "review"
+      input:
+        content: "${script}"
+        type: "剧本"
+        audience: "${input.target_audience}"
+      output_var: "review_result"
+      timeout: "10m"
+  
+  output:
+    - name: "creative_concept"
+      source: "${creative_concept}"
+      description: "生成的创意概念"
+    - name: "script"
+      source: "${script}"
+      description: "完整剧本"
+    - name: "review_report"
+      source: "${review_result}"
+      description: "评审报告"
+  
+  error_handling:
+    on_failure: "return_partial_results"
+    retry_count: 1
+    retry_delay: "30s"

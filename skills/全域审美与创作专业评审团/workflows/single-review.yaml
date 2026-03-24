@@ -1,0 +1,49 @@
+workflow:
+  id: "WF-001"
+  name: "单独评审"
+  version: "1.0"
+  description: "对单个作品进行完整的专业评审"
+  
+  input:
+    required:
+      - name: "content"
+        type: "string"
+        description: "作品内容（文本/描述）"
+      - name: "type"
+        type: "string"
+        description: "作品类型（短视频/电影/小说/广告等）"
+    optional:
+      - name: "audience"
+        type: "string"
+        description: "目标受众"
+      - name: "platform"
+        type: "string"
+        description: "发行平台"
+      - name: "business_goal"
+        type: "string"
+        description: "商业目标"
+  
+  steps:
+    - id: "step_1"
+      name: "执行评审"
+      node_id: "NODE-001"
+      agent: "content-review-agent"
+      action: "full_review"
+      input:
+        content: "${input.content}"
+        type: "${input.type}"
+        audience: "${input.audience}"
+        platform: "${input.platform}"
+        business_goal: "${input.business_goal}"
+      output_var: "review_result"
+      timeout: "10m"
+  
+  output:
+    - name: "review_report"
+      source: "${review_result}"
+      description: "完整的评审报告"
+  
+  error_handling:
+    on_failure: "return_error"
+    retry_count: 1
+    retry_delay: "30s"

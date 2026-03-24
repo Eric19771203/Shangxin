@@ -1,0 +1,42 @@
+{
+  "version": "2.3.1",
+  "last_updated": "2026-02-15T10:30:00Z",
+  "total_sessions": 1247,
+  "performance_metrics": {
+    "primary_acceptance_rate": 0.73,
+    "top3_acceptance_rate": 0.91,
+    "avg_satisfaction": 4.4,
+    "avg_decision_time": 28.5
+  },
+  "category_stats": {
+    "beauty/skincare": {
+      "sessions": 436,
+      "top_styles": ["Mocha Mousse", "Prada Jewelry Style", "Sculptural Lighting"],
+      "avg_satisfaction": 4.5
+    },
+    "3c/tech": {
+      "sessions": 312,
+      "top_styles": ["Cyberpunk", "Liquid Metal", "Sculptural Lighting"],
+      "avg_satisfaction": 4.3
+    },
+    "food/beverage": {
+      "sessions": 289,
+      "top_styles": ["Mocha Mousse", "Fashion Romantasy", "Wes Anderson"],
+      "avg_satisfaction": 4.2
+    }
+  },
+  "recent_improvements": [
+    {
+      "date": "2026-02-10",
+      "type": "weight_adjustment",
+      "description": "提升 beauty × Sculptural Lighting 关联度 +15%",
+      "impact": "acceptance_rate +5%"
+    },
+    {
+      "date": "2026-02-05", 
+      "type": "new_style",
+      "description": "添加 Fashion Romantasy 风格",
+      "impact": "新增87个匹配案例"
+    }
+  ]
+}

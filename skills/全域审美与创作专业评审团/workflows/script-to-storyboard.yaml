@@ -1,0 +1,45 @@
+workflow:
+  id: "WF-003"
+  name: "剧本到分镜"
+  version: "1.0"
+  description: "将剧本转换为详细分镜头脚本"
+  category: "production"
+  
+  input:
+    required:
+      - name: "script"
+        type: "string"
+        description: "剧本内容"
+    optional:
+      - name: "visual_style"
+        type: "string"
+        description: "视觉风格（如：电影感、纪实风格等）"
+      - name: "shot_count"
+        type: "integer"
+        description: "期望的镜头数量"
+      - name: "duration"
+        type: "string"
+        description: "总时长"
+  
+  steps:
+    - id: "step_1"
+      name: "生成分镜头脚本"
+      node_id: "NODE-008"
+      agent: "storyboard-master-agent"
+      action: "create_storyboard"
+      input:
+        script: "${input.script}"
+        visual_style: "${input.visual_style}"
+        shot_count: "${input.shot_count}"
+      output_var: "storyboard"
+      timeout: "10m"
+  
+  output:
+    - name: "storyboard"
+      source: "${storyboard}"
+      description: "详细的分镜头脚本"
+  
+  error_handling:
+    on_failure: "return_error"
+    retry_count: 1
+    retry_delay: "30s"

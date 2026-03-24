@@ -1,0 +1,96 @@
+workflow:
+  id: "WF-009"
+  name: "小说创作全流程"
+  version: "1.0"
+  description: "从创意到完整小说的创作流程"
+  category: "creation"
+  
+  input:
+    required:
+      - name: "genre"
+        type: "string"
+        description: "小说类型（如：玄幻、都市、言情等）"
+      - name: "theme"
+        type: "string"
+        description: "主题"
+    optional:
+      - name: "length"
+        type: "string"
+        description: "长度要求（如：短篇、中篇、长篇）"
+      - name: "style"
+        type: "string"
+        description: "风格偏好"
+      - name: "target_audience"
+        type: "string"
+        description: "目标读者"
+  
+  steps:
+    - id: "step_1"
+      name: "生成创意"
+      node_id: "NODE-002"
+      agent: "creative-generator-agent"
+      action: "generate_creative"
+      input:
+        theme: "${input.theme}"
+        target_audience: "${input.target_audience}"
+        genre: "${input.genre}"
+      output_var: "creative_concept"
+      timeout: "5m"
+    
+    - id: "step_2"
+      name: "创建主要角色"
+      node_id: "NODE-015"
+      agent: "character-creator-agent"
+      action: "create_character"
+      input:
+        character_type: "主角"
+        story_context: "${creative_concept}"
+      output_var: "main_character"
+      timeout: "10m"
+    
+    - id: "step_3"
+      name: "创作小说"
+      node_id: "NODE-012"
+      agent: "novel-generator-agent"
+      action: "write_novel"
+      input:
+        genre: "${input.genre}"
+        theme: "${input.theme}"
+        length: "${input.length}"
+        style: "${input.style}"
+        target_audience: "${input.target_audience}"
+        creative_concept: "${creative_concept}"
+        main_character: "${main_character}"
+      output_var: "novel"
+      timeout: "30m"
+    
+    - id: "step_4"
+      name: "评审小说"
+      node_id: "NODE-001"
+      agent: "content-review-agent"
+      action: "review"
+      input:
+        content: "${novel}"
+        type: "小说"
+        audience: "${input.target_audience}"
+      output_var: "review_result"
+      timeout: "15m"
+  
+  output:
+    - name: "creative_concept"
+      source: "${creative_concept}"
+      description: "创意概念"
+    - name: "main_character"
+      source: "${main_character}"
+      description: "主角档案"
+    - name: "novel"
+      source: "${novel}"
+      description: "完整小说"
+    - name: "review_report"
+      source: "${review_result}"
+      description: "评审报告"
+  
+  error_handling:
+    on_failure: "return_partial_results"
+    retry_count: 1
+    retry_delay: "30s"

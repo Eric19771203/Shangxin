@@ -1,0 +1,80 @@
+workflow:
+  id: "WF-010"
+  name: "玄幻漫剧创作"
+  version: "1.0"
+  description: "玄幻题材漫剧的专业创作流程"
+  category: "creation"
+  
+  input:
+    required:
+      - name: "world_setting"
+        type: "string"
+        description: "世界观设定"
+      - name: "power_system"
+        type: "string"
+        description: "修炼体系/力量体系"
+    optional:
+      - name: "episode_count"
+        type: "integer"
+        description: "集数"
+      - name: "main_conflict"
+        type: "string"
+        description: "主要冲突"
+      - name: "target_audience"
+        type: "string"
+        description: "目标受众"
+  
+  steps:
+    - id: "step_1"
+      name: "生成玄幻创意"
+      node_id: "NODE-002"
+      agent: "creative-generator-agent"
+      action: "generate_creative"
+      input:
+        theme: "${input.world_setting}"
+        target_audience: "${input.target_audience}"
+        genre: "玄幻漫剧"
+      output_var: "creative_concept"
+      timeout: "5m"
+    
+    - id: "step_2"
+      name: "创作玄幻漫剧剧本"
+      node_id: "NODE-016"
+      agent: "xuanhuan-drama-agent"
+      action: "write_xuanhuan_drama"
+      input:
+        world_setting: "${input.world_setting}"
+        power_system: "${input.power_system}"
+        episode_count: "${input.episode_count}"
+        main_conflict: "${input.main_conflict}"
+        creative_concept: "${creative_concept}"
+      output_var: "xuanhuan_script"
+      timeout: "20m"
+    
+    - id: "step_3"
+      name: "评审玄幻剧本"
+      node_id: "NODE-001"
+      agent: "content-review-agent"
+      action: "review"
+      input:
+        content: "${xuanhuan_script}"
+        type: "玄幻漫剧"
+        audience: "${input.target_audience}"
+      output_var: "review_result"
+      timeout: "10m"
+  
+  output:
+    - name: "creative_concept"
+      source: "${creative_concept}"
+      description: "创意概念"
+    - name: "xuanhuan_script"
+      source: "${xuanhuan_script}"
+      description: "玄幻漫剧剧本（含世界观和修炼体系）"
+    - name: "review_report"
+      source: "${review_result}"
+      description: "评审报告"
+  
+  error_handling:
+    on_failure: "return_partial_results"
+    retry_count: 1
+    retry_delay: "30s"

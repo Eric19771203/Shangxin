@@ -1,0 +1,473 @@
+{
+  "version": "1.0",
+  "updated": "2024-01-15T20:30:00Z",
+  "description": "所有功能节点的注册表",
+  "categories": {
+    "content-review": "内容评审类",
+    "creative-generation": "创意生成类",
+    "script-writing": "剧本创作类",
+    "novel-writing": "小说创作类",
+    "storyboard": "分镜创作类",
+    "adaptation": "改编类",
+    "optimization": "优化类"
+  },
+  "nodes": [
+    {
+      "id": "NODE-001",
+      "name": "内容评审节点",
+      "category": "content-review",
+      "path": "skills/全域审美与创作专业评审团.md",
+      "type": "agent-based",
+      "agent": "content-review-agent",
+      "description": "全品类内容专业评审，提供多维度打分和优化建议",
+      "capabilities": [
+        "全品类内容评审",
+        "多维度量化打分",
+        "可落地优化建议",
+        "商业价值评估",
+        "合规风险识别"
+      ],
+      "keywords": ["评审", "点评", "打分", "优化", "分析", "评估"],
+      "input": {
+        "required": ["content", "type"],
+        "optional": ["audience", "platform", "business_goal"]
+      },
+      "output": {
+        "format": "review-report",
+        "fields": ["score", "grade", "suggestions", "risks"]
+      },
+      "status": "active"
+    },
+    {
+      "id": "NODE-002",
+      "name": "创意生成器",
+      "category": "creative-generation",
+      "path": "skills/提示词Skills/01-创意生成器-SKILL.md",
+      "type": "agent-based",
+      "agent": "creative-generator-agent",
+      "description": "生成AI短剧创意，通过爽点选择、元素融合、情节设计创造吸引人的故事概念",
+      "capabilities": [
+        "短剧创意生成",
+        "爽点选择",
+        "元素融合",
+        "情节设计",
+        "受众定位"
+      ],
+      "keywords": ["创意", "生成", "头脑风暴", "策划", "概念"],
+      "input": {
+        "required": ["theme", "target_audience"],
+        "optional": ["genre", "duration", "constraints"]
+      },
+      "output": {
+        "format": "creative-concept",
+        "fields": ["summary", "core_appeal", "story_outline", "characters"]
+      },
+      "status": "active"
+    },
+    {
+      "id": "NODE-003",
+      "name": "故事类型转换大师",
+      "category": "creative-generation",
+      "path": "skills/提示词Skills/02-故事类型转换大师-SKILL.md",
+      "type": "agent-based",
+      "agent": "story-converter-agent",
+      "description": "将故事在不同类型间转换，如小说转短剧、短剧转漫剧等",
+      "capabilities": [
+        "故事类型转换",
+        "格式适配",
+        "内容重构",
+        "风格调整"
+      ],
+      "keywords": ["转换", "改编", "格式", "类型"],
+      "input": {
+        "required": ["original_content", "source_type", "target_type"],
+        "optional": ["constraints", "style_preference"]
+      },
+      "output": {
+        "format": "converted-story",
+        "fields": ["converted_content", "adaptation_notes"]
+      },
+      "status": "active"
+    },
+    {
+      "id": "NODE-004",
+      "name": "创意分析器",
+      "category": "content-review",
+      "path": "skills/提示词Skills/03-创意分析器-SKILL.md",
+      "type": "agent-based",
+      "agent": "creative-analyzer-agent",
+      "description": "分析创意的可行性、吸引力和市场潜力",
+      "capabilities": [
+        "创意分析",
+        "可行性评估",
+        "市场潜力预测",
+        "风险识别"
+      ],
+      "keywords": ["分析", "评估", "可行性", "市场"],
+      "input": {
+        "required": ["creative_concept"],
+        "optional": ["target_market", "budget_range"]
+      },
+      "output": {
+        "format": "analysis-report",
+        "fields": ["feasibility", "market_potential", "risks", "recommendations"]
+      },
+      "status": "active"
+    },
+    {
+      "id": "NODE-005",
+      "name": "剧本创作大师",
+      "category": "script-writing",
+      "path": "skills/提示词Skills/07-剧本创作大师-SKILL.md",
+      "type": "agent-based",
+      "agent": "script-master-agent",
+      "description": "专业剧本创作，包含完整的故事结构、角色塑造和对话设计",
+      "capabilities": [
+        "剧本创作",
+        "角色塑造",
+        "对话设计",
+        "结构规划",
+        "主题挖掘"
+      ],
+      "keywords": ["剧本", "编剧", "创作", "故事", "对话"],
+      "input": {
+        "required": ["story_concept", "genre"],
+        "optional": ["duration", "character_count", "style"]
+      },
+      "output": {
+        "format": "script",
+        "fields": ["scenes", "dialogues", "stage_directions", "character_notes"]
+      },
+      "status": "active"
+    },
+    {
+      "id": "NODE-006",
+      "name": "爽文短剧编剧",
+      "category": "script-writing",
+      "path": "skills/AI短剧/剧本 _ 爽文短剧提示词框架.md",
+      "type": "agent-based",
+      "agent": "shuangwen-drama-agent",
+      "description": "专注爽文短剧创作，快速制造冲突与反转，多重高潮设置",
+      "capabilities": [
+        "爽文短剧创作",
+        "冲突设计",
+        "反转设置",
+        "情绪调动",
+        "快节奏叙事"
+      ],
+      "keywords": ["爽文", "短剧", "反转", "冲突", "逆袭"],
+      "input": {
+        "required": ["theme", "protagonist_type"],
+        "optional": ["episode_count", "target_platform"]
+      },
+      "output": {
+        "format": "drama-script",
+        "fields": ["episodes", "plot_points", "reversals", "climaxes"]
+      },
+      "status": "active"
+    },
+    {
+      "id": "NODE-007",
+      "name": "网文改编短剧编剧",
+      "category": "adaptation",
+      "path": "skills/AI短剧/剧本 _ 网文改编短剧提示词框架.md",
+      "type": "agent-based",
+      "agent": "novel-to-drama-agent",
+      "description": "将网文小说改编为短剧剧本，保留核心爽点，优化节奏",
+      "capabilities": [
+        "网文改编",
+        "剧本重构",
+        "节奏优化",
+        "爽点提炼"
+      ],
+      "keywords": ["改编", "网文", "短剧", "重构"],
+      "input": {
+        "required": ["novel_content", "target_duration"],
+        "optional": ["key_scenes", "character_focus"]
+      },
+      "output": {
+        "format": "adapted-script",
+        "fields": ["script", "adaptation_notes", "cut_content"]
+      },
+      "status": "active"
+    },
+    {
+      "id": "NODE-008",
+      "name": "分镜头大师",
+      "category": "storyboard",
+      "path": "skills/提示词Skills/09-分镜头大师-SKILL.md",
+      "type": "agent-based",
+      "agent": "storyboard-master-agent",
+      "description": "将剧本转换为详细的分镜头脚本，包含镜头语言和画面描述",
+      "capabilities": [
+        "分镜头设计",
+        "镜头语言",
+        "画面描述",
+        "运镜设计"
+      ],
+      "keywords": ["分镜", "镜头", "画面", "运镜"],
+      "input": {
+        "required": ["script"],
+        "optional": ["visual_style", "shot_count"]
+      },
+      "output": {
+        "format": "storyboard",
+        "fields": ["shots", "camera_movements", "visual_descriptions"]
+      },
+      "status": "active"
+    },
+    {
+      "id": "NODE-009",
+      "name": "TVC广告分镜创作器",
+      "category": "storyboard",
+      "path": "skills/tvc-storyboard-creator/SKILL.md",
+      "type": "agent-based",
+      "agent": "tvc-storyboard-agent",
+      "description": "专业TVC广告分镜创作，支持多区域文化适配、多种视觉风格、AI绘画提示词生成",
+      "capabilities": [
+        "TVC广告分镜",
+        "多区域适配",
+        "视觉风格选择",
+        "AI绘画提示词",
+        "15秒模块化节奏"
+      ],
+      "keywords": ["TVC", "广告", "分镜", "商业", "视觉"],
+      "input": {
+        "required": ["product_info", "duration", "target_region"],
+        "optional": ["visual_style", "language", "brand_guidelines"]
+      },
+      "output": {
+        "format": "tvc-storyboard",
+        "fields": ["shots", "timing", "ai_prompts", "cultural_notes"]
+      },
+      "status": "active"
+    },
+    {
+      "id": "NODE-010",
+      "name": "分镜画面转AI绘画指令",
+      "category": "storyboard",
+      "path": "skills/提示词Skills/13-分镜画面描述转AI绘画指令-SKILL.md",
+      "type": "function-based",
+      "description": "将分镜画面描述转换为AI绘画工具的提示词",
+      "capabilities": [
+        "提示词转换",
+        "画面描述优化",
+        "AI绘画适配"
+      ],
+      "keywords": ["AI绘画", "提示词", "转换", "Midjourney", "Stable Diffusion"],
+      "input": {
+        "required": ["scene_description"],
+        "optional": ["art_style", "target_tool"]
+      },
+      "output": {
+        "format": "ai-prompt",
+        "fields": ["prompt", "negative_prompt", "parameters"]
+      },
+      "status": "active"
+    },
+    {
+      "id": "NODE-011",
+      "name": "分镜画面转AI视频指令",
+      "category": "storyboard",
+      "path": "skills/提示词Skills/15-分镜画面描述转AI视频指令-SKILL.md",
+      "type": "function-based",
+      "description": "将分镜画面描述转换为AI视频生成工具的提示词",
+      "capabilities": [
+        "视频提示词生成",
+        "运镜描述",
+        "动态效果设计"
+      ],
+      "keywords": ["AI视频", "Sora", "视频生成", "运镜"],
+      "input": {
+        "required": ["scene_description", "camera_movement"],
+        "optional": ["duration", "style"]
+      },
+      "output": {
+        "format": "video-prompt",
+        "fields": ["prompt", "camera_instructions", "timing"]
+      },
+      "status": "active"
+    },
+    {
+      "id": "NODE-012",
+      "name": "小说生成器",
+      "category": "novel-writing",
+      "path": "skills/提示词Skills/04-小说生成器-SKILL.md",
+      "type": "agent-based",
+      "agent": "novel-generator-agent",
+      "description": "生成完整的小说内容，包含情节、人物、对话",
+      "capabilities": [
+        "小说创作",
+        "情节设计",
+        "人物塑造",
+        "对话撰写"
+      ],
+      "keywords": ["小说", "创作", "故事", "文学"],
+      "input": {
+        "required": ["genre", "theme"],
+        "optional": ["length", "style", "target_audience"]
+      },
+      "output": {
+        "format": "novel",
+        "fields": ["chapters", "content", "character_profiles"]
+      },
+      "status": "active"
+    },
+    {
+      "id": "NODE-013",
+      "name": "短篇小说家",
+      "category": "novel-writing",
+      "path": "skills/提示词Skills/05-短篇小说家-SKILL.md",
+      "type": "agent-based",
+      "agent": "short-story-agent",
+      "description": "创作短篇小说，注重情节紧凑和主题深刻",
+      "capabilities": [
+        "短篇小说创作",
+        "紧凑叙事",
+        "主题挖掘",
+        "结尾设计"
+      ],
+      "keywords": ["短篇", "小说", "故事", "文学"],
+      "input": {
+        "required": ["theme"],
+        "optional": ["word_count", "style", "ending_type"]
+      },
+      "output": {
+        "format": "short-story",
+        "fields": ["title", "content", "theme_analysis"]
+      },
+      "status": "active"
+    },
+    {
+      "id": "NODE-014",
+      "name": "网文专业作家",
+      "category": "novel-writing",
+      "path": "skills/提示词Skills/06-网文专业作家-SKILL.md",
+      "type": "agent-based",
+      "agent": "webnovel-writer-agent",
+      "description": "创作网络小说，掌握爽点设置、节奏把控、读者互动",
+      "capabilities": [
+        "网文创作",
+        "爽点设置",
+        "节奏把控",
+        "章节设计"
+      ],
+      "keywords": ["网文", "小说", "爽点", "连载"],
+      "input": {
+        "required": ["genre", "protagonist_type"],
+        "optional": ["chapter_count", "update_frequency"]
+      },
+      "output": {
+        "format": "webnovel",
+        "fields": ["chapters", "hooks", "cliffhangers"]
+      },
+      "status": "active"
+    },
+    {
+      "id": "NODE-015",
+      "name": "角色创建专家",
+      "category": "creative-generation",
+      "path": "skills/提示词Skills/20-角色创建专家-SKILL.md",
+      "type": "agent-based",
+      "agent": "character-creator-agent",
+      "description": "创建立体丰满的角色，包含背景、性格、动机、成长弧线",
+      "capabilities": [
+        "角色设计",
+        "性格塑造",
+        "背景故事",
+        "成长弧线"
+      ],
+      "keywords": ["角色", "人物", "设计", "塑造"],
+      "input": {
+        "required": ["character_type", "story_context"],
+        "optional": ["personality_traits", "background"]
+      },
+      "output": {
+        "format": "character-profile",
+        "fields": ["basic_info", "personality", "background", "arc"]
+      },
+      "status": "active"
+    },
+    {
+      "id": "NODE-016",
+      "name": "玄幻类漫剧编剧",
+      "category": "script-writing",
+      "path": "skills/玄幻类漫剧剧本创作 Claude Skill/CLAUDE.md",
+      "type": "agent-based",
+      "agent": "xuanhuan-drama-agent",
+      "description": "专注玄幻题材漫剧创作，包含修炼体系、世界观构建",
+      "capabilities": [
+        "玄幻剧本创作",
+        "修炼体系设计",
+        "世界观构建",
+        "打斗场景"
+      ],
+      "keywords": ["玄幻", "漫剧", "修炼", "世界观"],
+      "input": {
+        "required": ["world_setting", "power_system"],
+        "optional": ["episode_count", "main_conflict"]
+      },
+      "output": {
+        "format": "xuanhuan-script",
+        "fields": ["episodes", "power_system", "world_rules"]
+      },
+      "status": "active"
+    },
+    {
+      "id": "NODE-017",
+      "name": "末世重生类漫剧编剧",
+      "category": "script-writing",
+      "path": "skills/末世重生类漫剧剧本创作 SKill/CLAUDE.md",
+      "type": "agent-based",
+      "agent": "doomsday-drama-agent",
+      "description": "专注末世重生题材漫剧创作，包含生存策略、重生优势运用",
+      "capabilities": [
+        "末世剧本创作",
+        "重生设定",
+        "生存策略",
+        "反转设计"
+      ],
+      "keywords": ["末世", "重生", "漫剧", "生存"],
+      "input": {
+        "required": ["apocalypse_type", "rebirth_advantage"],
+        "optional": ["episode_count", "survival_focus"]
+      },
+      "output": {
+        "format": "doomsday-script",
+        "fields": ["episodes", "survival_strategies", "rebirth_advantages"]
+      },
+      "status": "active"
+    },
+    {
+      "id": "NODE-018",
+      "name": "网文改编漫剧专家",
+      "category": "adaptation",
+      "path": "skills/网文改编漫剧 Claude Agent +Skill/CLAUDE.md",
+      "type": "agent-based",
+      "agent": "novel-to-comic-agent",
+      "description": "将网文小说改编为漫剧形式，优化视觉呈现和节奏",
+      "capabilities": [
+        "网文改编漫剧",
+        "视觉化改编",
+        "节奏优化",
+        "分镜设计"
+      ],
+      "keywords": ["改编", "网文", "漫剧", "视觉化"],
+      "input": {
+        "required": ["novel_content", "target_episodes"],
+        "optional": ["visual_style", "key_scenes"]
+      },
+      "output": {
+        "format": "comic-drama-script",
+        "fields": ["episodes", "visual_notes", "adaptation_strategy"]
+      },
+      "status": "active"
+    }
+  ],
+  "metadata": {
+    "total_nodes": 18,
+    "active_nodes": 18,
+    "last_scan": "2024-01-15T20:30:00Z",
+    "categories_count": 7
+  }
+}
