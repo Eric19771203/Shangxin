@@ -32,6 +32,11 @@ shots_per_minute: 8
 sequence_board: true
 beat_board: true
 
+## Seedance 2.0 专属配置
+seedance_mode: "全能参考模式"  # 唯一支持模式，已移除首尾帧模式
+reference_lock: true
+global_reference_weight: 0.9
+
 ## API配置
 seedance_api: "https://seedance.api.com/v2"
 fenjue_api: "https://fenjue.api.com/v1"

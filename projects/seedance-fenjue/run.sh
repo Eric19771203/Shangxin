@@ -1,8 +1,9 @@
 #!/bin/bash
 # Seedance焚决项目组快速启动脚本
 
-echo "🚀 启动 Seedance焚决联合引擎 v1.0"
+echo "🚀 启动 Seedance焚决联合引擎 v1.1"
 echo "-----------------------------------"
+echo "✅ 已适配 Seedance 2.0 全能参考模式（移除首尾帧模式）"
 
 case "$1" in
   "create")
