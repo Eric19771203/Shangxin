@@ -1,0 +1,69 @@
+name: 焚决工作流
+description: 视频分镜生成工作流 - 模块1分析需求，模块2规划大纲，模块3生成分镜，模块4生成资产，最终合并输出
+version: 1.0.0
+
+workflow:
+  input:
+    - name: UserInput
+      type: string
+      required: true
+      description: 用户的需求描述
+    - name: ProjectName
+      type: string
+      required: true
+      description: 项目名称，用于生成输出文件名
+
+  output:
+    - name: FinalOutput
+      type: file
+      description: 最终合并输出文件
+      path: "{ProjectName}_最终成果.md"
+
+nodes:
+  模块1-需求分析:
+    module: 模块1-需求分析
+    description: 分析用户需求，输出结构化分析报告
+    input:
+      UserInput: workflow.input.UserInput
+    output:
+      分析报告: "{ProjectName}_需求分析.txt"
+
+  模块2-大纲与节奏规划:
+    module: 模块2-大纲规划
+    description: 根据需求分析，规划叙事结构和情绪节奏
+    input:
+      需求分析报告: nodes.模块1-需求分析.output.分析报告
+    output:
+      大纲文件: "{ProjectName}_大纲规划.txt"
+
+  模块3-分镜脚本生成:
+    module: 模块3-分镜脚本
+    description: 根据大纲和需求分析，生成分镜脚本
+    input:
+      需求分析报告: nodes.模块1-需求分析.output.分析报告
+      大纲文件: nodes.模块2-大纲与节奏规划.output.大纲文件
+    output:
+      分镜脚本: "{ProjectName}_分镜脚本.txt"
+
+  模块4-资产详情生成:
+    module: 模块4-资产详情
+    description: 根据需求分析和分镜脚本，生成资产详情
+    input:
+      需求分析报告: nodes.模块1-需求分析.output.分析报告
+      分镜脚本: nodes.模块3-分镜脚本生成.output.分镜脚本
+    output:
+      资产详情: "{ProjectName}_资产详情.txt"
+
+final:
+  merge:
+    inputs:
+      - nodes.模块3-分镜脚本生成.output.分镜脚本
+      - nodes.模块4-资产详情生成.output.资产详情
+    output:
+      path: "{ProjectName}_最终成果.md"
+    format: markdown
+    separator: "\n\n---\n\n"
+
+execution:
+  mode: sequential
+  continue_on_error: false

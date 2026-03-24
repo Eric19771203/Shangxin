@@ -1,0 +1,37 @@
+# Seedance焚决项目组配置
+
+## 基础配置
+project_name: "Seedance焚决联合引擎"
+version: "1.0.0"
+workdir: "/root/.openclaw/workspace/projects/seedance-fenjue"
+
+## 模型配置
+default_model: "ark/ark-code-latest"
+creative_model: "moonshot/kimi-k2.5"
+generation_model: "codex/gpt-5-codex"
+image_model: "openai/gpt-4o"
+
+## 输出配置
+output_dir: "./output"
+format: "mp4"
+resolution: "1920x1080"
+fps: 24
+
+## 风格预设
+default_style: "Villeneuve 科幻风"
+available_styles:
+  - "Villeneuve 科幻风"
+  - "王家卫 都市风"
+  - "诺兰 悬疑风"
+  - "宫崎骏 动画风"
+  - "Wes Anderson 对称风"
+  - "张艺谋 国风"
+
+## 分镜配置
+shots_per_minute: 8
+sequence_board: true
+beat_board: true
+
+## API配置
+seedance_api: "https://seedance.api.com/v2"
+fenjue_api: "https://fenjue.api.com/v1"
