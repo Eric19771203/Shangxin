@@ -1,9 +1,10 @@
 #!/bin/bash
 # Seedance焚决项目组快速启动脚本
 
-echo "🚀 启动 Seedance焚决联合引擎 v1.1"
+echo "🚀 启动 Seedance焚决融合引擎 v2.0 P0核心版"
 echo "-----------------------------------"
-echo "✅ 已适配 Seedance 2.0 全能参考模式（移除首尾帧模式）"
+echo "✅ 已融合焚决终结版 + 即梦2.0 V4.2增强版核心能力"
+echo "✅ 全自动化流程，仅需输入剧本即可生成Seedance 2.0标准生产包"
 
 case "$1" in
   "create")
